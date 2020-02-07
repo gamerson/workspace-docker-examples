@@ -1,0 +1,9 @@
+task modifyDockerfile
+
+createDockerfile.finalizedBy modifyDockerfile
+
+modifyDockerfile {
+	doLast {
+		file(createDockerfile.destFile).append("ENV FOO BAR\n")
+	}
+}
